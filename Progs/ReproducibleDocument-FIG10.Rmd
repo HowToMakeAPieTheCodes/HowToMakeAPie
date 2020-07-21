@@ -1,0 +1,58 @@
+
+---
+title: 'How to Make a Pie?'
+author: "The authors"
+date: "June, 2018"
+output:
+  html_document: default
+  html_notebook:
+    code_folding: hide
+    fig_caption: yes
+    theme: journal
+---
+
+### What are the ingredients for *Reproducible Research*?
+The basic structure of reproducible research document follows a logic of sequences of commands in some programming language *code chunks* embedded in the text (or *text chunks* embedded in the code).
+For example:
+
+
+````{r , results= "hide"}
+Apple = c(300,3,200,200)
+Crumble = c(500,4,200,10)
+Cheese = c(200,2,30,40)
+Muffin =  c( 400,3,100,120)
+
+Pie.Table <- rbind(Apple,Crumble, Cheese, Muffin)  
+Pie.Table <- as.data.frame(Pie.Table)
+
+colnames(Pie.Table) = list("Flour","Eggs", "Sugar", "Milk")
+rownames(Pie.Table) = list("Pie","Crumble" , "Cake", "Muffin")
+```
+
+```{r, echo=FALSE}
+#show table
+Pie.Table
+
+```
+
+We can compute whatever we want in LaTeX 
+$$Weight = \frac{(a+c)*(b+d)}{2}$$
+And draw the graphic:
+
+```{r, results="hide"}
+barplot(Pie.Table$Flour, col = "gray", 
+        names.arg = rownames(Pie.Table), 
+        horiz = TRUE, las =1,
+        main = "Flour content in Pie recipes")
+
+```
+
+
+
+
+
+
+
+
+
+
