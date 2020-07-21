@@ -1,34 +1,40 @@
+# This is a graphviz code that can be launched online on https://dreampuf.github.io/GraphvizOnline
 digraph G {
-rankdir = RL;
-node [width =2, height=0.7];
-subgraph cluster_data {
-style=invis;
-node [shape=box, style = rounded]
-rawdata [label = "Raw data"];
-working [label = "Working dataset"];
-interm [label = <Intermediate files<BR />(data, results)>];
-node [style=dashed]
-final [label=<Final results<BR /><FONT POINT-SIZE="10">
-(Tables, Figures, Summaries)</FONT>>];
-publication [label = "Publication"];
-{rank=same; rawdata; working; interm; publication}
-}
-subgraph cluster_code {
-style=invis;
-node [shape = ellipse, fillcolor=gray73, style="filled"]
-dataprep [label = <Data preparation<BR />code>];
-analysis [label = "Analysis code"];
-codeout [label = "Code output"];
-coderes [label = <Code for<BR />presenting results>];
-node [fillcolor=gray93, style="filled"]
-method1 [label = "Method 1", width=1.5];
-method2 [label = "Method 2", width=1.5];
-{rank=same; dataprep; analysis; codeout; coderes}
-{rank=same; method1; method2}
-//dataprep -> analysis -> codeout -> coderes [invis];
-method1 -> analysis;
-method2 -> analysis;
-}
-rawdata -> dataprep -> working -> analysis -> interm -> codeout ->
-final -> coderes -> publication;
+    rankdir = RL;
+    node [width =2, height=0.7];
+    subgraph cluster_data {
+        style=invis;
+        
+        node [shape=box, style = rounded]
+        rawdata [label = "Raw data"];
+        working [label = "Working dataset"];
+        interm [label = <Intermediate files<BR />(data, results)>];
+        
+        node [style=dashed]
+        final [label=<Final results<BR /><FONT POINT-SIZE="10">
+        (Tables, Figures, Summaries)</FONT>>];
+        publication [label = "Publication"];
+        
+        {rank=same; rawdata; working; interm; publication}
+    }
+    subgraph cluster_code {
+        style=invis;
+        
+        node [shape = ellipse, fillcolor=gray73, style="filled"]
+        dataprep [label = <Data preparation<BR />code>];
+        analysis [label = "Analysis code"];
+        codeout [label = "Code output"];
+        coderes [label = <Code for<BR />presenting results>];
+        
+        node [fillcolor=gray93, style="filled"]
+        method1 [label = "Method 1", width=1.5];
+        method2 [label = "Method 2", width=1.5];
+        
+        {rank=same; dataprep; analysis; codeout; coderes}
+        {rank=same; method1; method2}
+        method1 -> analysis;
+        method2 -> analysis;
+    }
+    rawdata -> dataprep -> working -> analysis -> interm -> codeout ->
+    final -> coderes -> publication;
 }
