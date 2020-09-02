@@ -11,7 +11,7 @@ Ingr = ['Egg', 'Sugar', 'Salt', 'Butter', 'Flour',
         'Milk', 'Vanilla', 'Rum']
 
 # Needed quantities for a 4 persons pie
-QtyFor4 = ['1', '150', '1', '125', '230',
+QtyFor4 = ['3', '150', '1', '125', '230',
            '0.25', '2', '1'] 
 Unit = ['unit(s)', 'gr', 'pinch', 'gr', 'gr', 'L',
         'pod', 'soup spoon']
